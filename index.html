@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintLaju.com</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div id="splashScreen" style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw;">
+        <img id="logo" src="logo.png" alt="Logo" style="max-width: 80vw; max-height: 80vh; width: auto; height: auto;">
+</div>
+<div class="container">
+<div style="text-align: center;">
+    
+    <img src="logo.png" alt="PrintLaju.com" style="width: 200px; height: 200px;">
+    <h4>Coverage Areas: Skudai, Tampoi, Pulai</h4>
+    <button id="myBtn" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-weight:bold;">
+        View Pricing
+    </button>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Price (RM)</th>
+      </tr>
+      <tr>
+        <td>Black & White Printing Per Sided</td>
+        <td>0.3</td>
+      </tr>
+      <tr>
+        <td>Color Printing Per Sided</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Tape Binding</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Comb Binding</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Scheduled Delivery</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>One Hour Delivery</td>
+        <td>5++</td>
+      </tr>
+      <tr>
+        <td>Lamination Per Page</td>
+        <td>2</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+    <!-- Master Data Section -->
+    <div id="masterDataSection" class="data-section">
+        <h3>Customer Data</h3>
+        <div class="form-section">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" class="form-input">
+        </div>
+        <div class="form-section">
+            <label for="taman">Taman:</label>
+            <input type="text" id="taman" class="form-input">
+        </div>
+        <div class="form-section">
+            <label for="jalan">Jalan:</label>
+            <input type="text" id="jalan" class="form-input">
+        </div>
+        <div class="form-section">
+            <label for="houseNo">House No:</label>
+            <input type="text" id="houseNo" class="form-input">
+        </div>
+        <div class="form-section">
+            <label for="delivery">Delivery:</label>
+            <select id="delivery" class="form-input">
+                <option value="ScheduledDelivery">Scheduled Delivery Same Day 7pm-9pm</option>
+                <option value="OneHourDelivery">Immediate Delivery 1 hour</option>
+            </select>
+        </div>
+        <button id="nextButton" class="button" style="background-color:#D3D3D3;     color: black;
+    font-weight: bold;"> Next ⏭️ </button>
+    </div>
+    <div id="fileDataSection" class="data-section" style="display: none;">
+        <h3>File Data</h3>
+        <div id="filesContainer">
+        </div>
+        <button id="backButton" class="button">Back</button>
+        <button id="addFile" class="button">Add File</button>
+        <button id="sendButton" class="button" onclick="sendData()">Send!</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
