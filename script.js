@@ -43,6 +43,10 @@ function addFile() {
             <input type="number" id="pages${fileIndex}" name="pages" class="form-input" value="1">
         </div>
         <div class="form-section">
+            <label for="pages${fileIndex}">How many copies/Berapa Salinan/几份:</label>
+            <input type="number" id="copies${fileIndex}" name="copies" class="form-input" value="1">
+        </div>
+        <div class="form-section">
             <label for="lamination${fileIndex}">Lamination:</label>
             <select id="lamination${fileIndex}" name="lamination" class="form-input">
                 <option value="no">No</option>
@@ -96,6 +100,7 @@ function calculateTotalCost(filesData) {
         if (isNaN(fileCost)) {
             console.error('File cost is not a number for file:', file);
         }
+        fileCost = fileCost * file.copies;
 
         total += fileCost;
     });
@@ -178,6 +183,7 @@ function sendData() {
         color: section.querySelector('select[name="color"]').value,
         binding: section.querySelector('select[name="binding"]').value,
         pages: parseInt(section.querySelector('input[name="pages"]').value, 10),
+        copies: parseInt(section.querySelector('input[name="copies"]').value, 10),
         lamination: section.querySelector('select[name="lamination"]').value,
         printSide: section.querySelector('select[name="printSide"]').value
     }));
@@ -236,7 +242,7 @@ function sendData() {
         } else if (file.binding === 'CombBinding') {
             bindingText = 'Comb Binding';
         }
-
+        message += `Copies: ${file.copies}\<br>`;
         message += `Binding: ${file.binding}\<br>`;
         message += `Pages: ${file.pages}<br>`;
         message += `Lamination: ${file.lamination === 'yes' ? 'Yes' : 'No'}<br>`;
@@ -268,7 +274,7 @@ function sendData() {
         } else if (file.binding === 'CombBinding') {
             bindingText = 'Comb Binding';
         }
-
+        plainTextMessage += `Copies: ${file.copies}\n`;
         plainTextMessage += `Binding: ${bindingText}\n`;
         plainTextMessage += `Pages: ${file.pages}\n`;
         plainTextMessage += `Lamination: ${file.lamination === 'yes' ? 'Yes' : 'No'}\n`;
