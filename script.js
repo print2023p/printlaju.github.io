@@ -304,7 +304,7 @@ function sendData() {
             const encodedMessage = encodeURIComponent(plainTextMessage);
 
             // Create WhatsApp link and open it
-            const whatsappLink = `https://wa.me/6581551816?text=${encodedMessage}`;
+            const whatsappLink = `https://wa.me/0123456789?text=${encodedMessage}`;
             window.open(whatsappLink, '_blank');
         }
     });
